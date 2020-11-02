@@ -1,3 +1,4 @@
+import 'package:firebase_prac/fblogin.dart';
 import 'package:firebase_prac/sign.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -112,24 +113,13 @@ class _homePageState extends State<homePage> {
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: RaisedButton(
-                            child: Text("Submit"),
+                            child: Text("Register"),
                             onPressed: () {
                               if (_formKey.currentState.validate()) {
                                 _register();
                               } else {
                                 print("Not valid");
                               }
-                            }),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: RaisedButton(
-                            child: Text("Sign In"),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => sign()));
                             }),
                       ),
                       Container(
@@ -139,7 +129,38 @@ class _homePageState extends State<homePage> {
                             : (_success
                                 ? 'Successfully registered ' + _userEmail
                                 : 'Registration failed')),
-                      )
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: RaisedButton(
+                            child: Text("Sign In"),
+                            onPressed: () async {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => sign()));
+                            }),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: MaterialButton(
+                            minWidth: 100,
+                            height: 40,
+                            elevation: 10.0,
+                            color: Colors.lightBlue[900],
+                            child: Text(
+                              "Facebook",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            onPressed: () async {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => fblogin()));
+                            }),
+                      ),
                     ],
                   ))),
         ));
