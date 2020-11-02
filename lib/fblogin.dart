@@ -72,6 +72,38 @@ class _fbloginState extends State<fblogin> {
                 child: new Text('Logout'),
               ),
             ),
+            Center(
+              child: MaterialButton(
+                  elevation: 10.0,
+                  child: Container(
+                    width: 140.0,
+                    height: 40.0,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 10.0,
+                            spreadRadius: 0.0,
+                            offset: Offset(
+                                2.0, 2.0), // shadow direction: bottom right
+                          )
+                        ],
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Colors.pink, Colors.purple],
+                        )),
+                    child: Center(
+                      child: Text(
+                        "Decoration",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  onPressed: null),
+            )
           ],
         ),
       ),
